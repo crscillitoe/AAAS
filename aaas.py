@@ -15,7 +15,7 @@ limiter = Limiter(
 
 @app.route("/<path:vargs>", methods=["GET"])
 @cross_origin(support_credentials=True)
-# @limiter.limit("1 per day")
+@limiter.limit("1 per day")
 def add(vargs):
     result = 0
     try:
