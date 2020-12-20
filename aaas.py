@@ -13,18 +13,16 @@ limiter = Limiter(
 )
 
 
-@app.route("/<x>/<y>", methods=["GET"])
+@app.route("/<path:vargs>", methods=["GET"])
 @cross_origin(support_credentials=True)
-@limiter.limit("1 per day")
-def add(x, y):
+# @limiter.limit("1 per day")
+def add(vargs):
+    result = 0
     try:
-        x = int(x)
-        y = int(y)
+        # Convert to integers and check bound constraints
+        for arg in vargs.split("/"):
+            if '1' <= arg <= '9':   # Check value constraints
+                result += int(arg)  # Find sum
     except:
         return "Bad request", 400
-
-    # Bounds check
-    if x >= 10 or y >= 10 or x <= 0 or y <= 0:
-        return "Bad request", 400
-
-    return str(x + y), 200
+    return str(result), 200

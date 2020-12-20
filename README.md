@@ -1,13 +1,13 @@
 # AAAS (Addition as a Service)
 
-Have you ever wanted a simple REST API that enabled you to add two single digit positive integers?
+Have you ever wanted a simple REST API that enabled you to add single digit positive integers?
 
 Look no further.
 
 Addition as a Service (AAAS) provides users with an easy, robust, reliable, and atomic REST API for most addition needs. If your requirements for addition fall under the following:
 
-1. You wish to add exactly `2` positive integers together
-2. All `2` of these positive integers are within the range `1-9` inclusive
+1. You wish to add `n` positive integers together
+2. All `n` of these positive integers are within the range `1-9` inclusive
 3. You require the ability to call this api once a day or less frequently
 
 Then you are welcome to use AAAS for your addition needs!
@@ -64,7 +64,7 @@ def aaas(x: int, y: int) -> int:
 
 # API Documentation
 
-**URL** : `/x/y`
+**URL** : `/value_1/value_2/value_n`
 
 **Method** : `GET`
 
